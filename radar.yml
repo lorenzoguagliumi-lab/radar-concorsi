@@ -1,0 +1,44 @@
+name: Radar Concorsi
+
+on:
+  schedule:
+    - cron: "0 5 * * *"   # 07:00 con l'ora legale, 06:00 con l'ora solare
+  workflow_dispatch:       # tasto "Run workflow" per aggiornare a mano
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency: radar
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installo le librerie
+        run: pip install -r requirements.txt
+
+      - name: Leggo la Gazzetta Ufficiale
+        run: python radar.py --debug
+
+      - name: Pubblico la pagina aggiornata
+        run: |
+          git config user.name "radar-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs stato comuni.csv
+          git diff --cached --quiet || git commit -m "Radar aggiornato il $(date +'%d/%m/%Y')"
+          git push
+
+      - name: Avviso email per i bandi nuovi
+        if: hashFiles('avviso.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Radar: bandi nuovi del $(date +'%d/%m')" --body-file avviso.md
