@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: "0 5 * * *"   # 07:00 con l'ora legale, 06:00 con l'ora solare
   workflow_dispatch:       # tasto "Run workflow" per aggiornare a mano
+  push:                    # parte anche quando modifichi i file del radar
+    branches: [main]
+    paths-ignore: ["docs/**", "stato/**", "comuni.csv"]
 
 permissions:
   contents: write
