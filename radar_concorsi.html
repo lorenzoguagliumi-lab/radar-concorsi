@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar Concorsi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F2138; --ink-soft:#43566E; --paper:#EEF1F5; --card:#FFFFFF;
+    --line:#D3DAE3; --blu:#14539A; --verde:#146B4F; --ambra:#A65F06; --rosso:#A3231C; --r:3px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  header{background:var(--ink);color:#fff;padding:22px 20px 18px;border-bottom:4px solid var(--blu);}
+  .wrap{max-width:1080px;margin:0 auto;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8FB0D8;margin:0 0 6px;}
+  h1{font-family:"Archivo",sans-serif;font-weight:800;font-size:31px;line-height:1.05;letter-spacing:-.02em;margin:0 0 8px;}
+  .sub{margin:0;color:#B9C7D8;font-size:13.5px;max-width:60ch;}
+  .counters{display:flex;gap:26px;margin-top:16px;flex-wrap:wrap;}
+  .counters div{display:flex;flex-direction:column;}
+  .counters b{font-family:"Archivo";font-size:22px;font-weight:700;line-height:1;}
+  .counters span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8FB0D8;margin-top:5px;}
+  .layout{max-width:1080px;margin:0 auto;padding:20px;display:grid;grid-template-columns:264px 1fr;gap:20px;align-items:start;}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;position:sticky;top:20px;}
+  .panel h2{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line);}
+  fieldset{border:0;padding:0;margin:0 0 18px;}
+  legend{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:8px;padding:0;}
+  input[type=range]{width:100%;accent-color:var(--blu);}
+  input[type=search]{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:var(--r);font-family:inherit;font-size:13px;color:var(--ink);}
+  input[type=search]:focus{outline:2px solid var(--blu);outline-offset:1px;}
+  .rangeval{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--blu);font-weight:600;}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{font-size:12.5px;padding:5px 9px;border:1px solid var(--line);border-radius:var(--r);background:#fff;color:var(--ink-soft);cursor:pointer;font-family:inherit;transition:background .12s,color .12s,border-color .12s;}
+  .chip:hover{border-color:var(--blu);color:var(--blu);}
+  .chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff;}
+  .chip:focus-visible,.reset:focus-visible{outline:2px solid var(--blu);outline-offset:2px;}
+  .reset{width:100%;padding:8px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:#fff;color:var(--ink-soft);border:1px solid var(--line);border-radius:var(--r);cursor:pointer;}
+  .reset:hover{border-color:var(--ink);color:var(--ink);}
+  .list{display:flex;flex-direction:column;gap:10px;}
+  .bando{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px 14px 19px;position:relative;overflow:hidden;}
+  .bando::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--spine,var(--line));}
+  .riga1{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;}
+  .ente{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 5px;}
+  .titolo{font-family:"Archivo",sans-serif;font-weight:700;font-size:17px;line-height:1.25;letter-spacing:-.01em;margin:0 0 9px;}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px;}
+  .tag{font-size:11.5px;padding:3px 7px;border:1px solid var(--line);border-radius:var(--r);color:var(--ink-soft);background:#F8FAFC;}
+  .tag.b{border-color:#B7CBE4;color:var(--blu);background:#F1F6FC;}
+  .piede{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;border-top:1px solid var(--line);padding-top:10px;}
+  .fonte{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-soft);margin:0 0 6px;}
+  .links{display:flex;gap:12px;flex-wrap:wrap;}
+  .links a{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--blu);text-decoration:none;border-bottom:1px solid #B7CBE4;}
+  .links a:hover{border-bottom-color:var(--blu);}
+  .scad{text-align:right;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-soft);white-space:nowrap;margin:0;}
+  .scad b{display:block;font-size:14px;color:var(--spine,var(--ink));}
+  .dist{display:flex;flex-direction:column;align-items:center;gap:2px;flex:none;}
+  .dist svg{display:block;}
+  .dist .km{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:600;}
+  .dist .lab{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+  .fit{display:flex;align-items:center;gap:7px;}
+  .fit .segs{display:flex;gap:2px;}
+  .fit i{width:13px;height:5px;background:var(--line);border-radius:1px;}
+  .fit i.on{background:var(--blu);}
+  .fit span{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);}
+  .vuoto{background:var(--card);border:1px dashed var(--line);border-radius:var(--r);padding:34px 20px;text-align:center;color:var(--ink-soft);}
+  .vuoto b{display:block;font-family:"Archivo";font-size:16px;color:var(--ink);margin-bottom:5px;}
+  .nota{max-width:1080px;margin:0 auto;padding:0 20px 34px;font-size:12.5px;color:var(--ink-soft);}
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;padding:14px;}
+    .panel{position:static;}
+    h1{font-size:25px;}
+    .riga1{flex-direction:column-reverse;align-items:flex-start;}
+    .dist{flex-direction:row;align-items:center;gap:7px;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Gazzetta Ufficiale · 4ª Serie Speciale</p>
+    <h1>Radar Concorsi</h1>
+    <p class="sub">Bandi della 4ª Serie Speciale, ordinati per affinità con il profilo target e per distanza da Bologna.</p>
+    <div class="counters">
+      <div><b id="cVis">0</b><span>in elenco</span></div>
+      <div><b>595</b><span>letti dalla GU</span></div>
+      <div><b>29/08 15:26</b><span>ultimo scarico</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="panel">
+    <h2>Filtri</h2>
+
+    <fieldset>
+      <legend>Cerca</legend>
+      <input type="search" id="q" placeholder="ente, profilo, parola chiave">
+    </fieldset>
+
+    <fieldset>
+      <legend>Distanza da Bologna</legend>
+      <input type="range" id="km" min="10" max="300" step="10" value="300">
+      <div class="rangeval">entro <span id="kmVal">300</span> km</div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Inquadramento</legend>
+      <div class="chips" id="fInq"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Area professionale</legend>
+      <div class="chips" id="fArea"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Tipo procedura</legend>
+      <div class="chips" id="fTipo"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Scadenza</legend>
+      <div class="chips" id="fScad">
+        <button class="chip" aria-pressed="false" data-v="7">entro 7 giorni</button>
+        <button class="chip" aria-pressed="false" data-v="30">entro 30 giorni</button>
+      </div>
+    </fieldset>
+
+    <button class="reset" id="reset">Azzera filtri</button>
+  </aside>
+
+  <main><div class="list" id="list"></div></main>
+</div>
+
+<p class="nota">595 atti letti dalle Gazzette degli ultimi 30 giorni. Inquadramento e area sono dedotti dal testo del sommario: verifica sempre il bando originale.</p>
+
+<script>
+const bandi = [{"codice": "26E04563", "ente": "Azienda Unita' Sanitaria Locale Di Bologna", "titolo": "CONCORSO (scad. 20 settembre 2026)", "tipo": "Concorso", "inquadramento": "Dirigenza", "area": "Tecnica", "posti": 2, "sede": "Bologna (BO)", "km": 0, "scadenza": "2026-09-20", "giorni": 22, "gu": "n. 64 del 21-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-21&atto.codiceRedazionale=26E04563", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04563", "origine_sigla": "BO", "punteggio": 98.7, "affinita": 5}, {"codice": "26E04671", "ente": "Azienda Unita' Sanitaria Locale Di Reggio Emilia", "titolo": "CONCORSO (scad. 27 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Reggio Emilia (RE)", "km": 61, "scadenza": "2026-09-27", "giorni": 29, "gu": "n. 66 del 28-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-28&atto.codiceRedazionale=26E04671", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04671", "origine_sigla": "BO", "punteggio": 94.7, "affinita": 5}, {"codice": "26E04573", "ente": "Istituto Zooprofilattico Sperimentale Delle Venezie Di Legnaro", "titolo": "CONCORSO (scad. 20 settembre 2026)", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Tecnica", "posti": 1, "sede": "Legnaro (PD)", "km": 106, "scadenza": "2026-09-20", "giorni": 22, "gu": "n. 64 del 21-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-21&atto.codiceRedazionale=26E04573", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04573", "origine_sigla": "BO", "punteggio": 89.8, "affinita": 5}, {"codice": "26E04511", "ente": "Azienda Zero Di Padova", "titolo": "CONCORSO (scad. 17 settembre 2026)", "tipo": "Concorso", "inquadramento": "Dirigenza", "area": "Economico-finanziaria", "posti": 1, "sede": "Padova (PD)", "km": 110, "scadenza": "2026-09-17", "giorni": 19, "gu": "n. 63 del 18-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-18&atto.codiceRedazionale=26E04511", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04511", "origine_sigla": "BO", "punteggio": 89.0, "affinita": 5}, {"codice": "26E04512", "ente": "Azienda Zero Di Padova", "titolo": "CONCORSO (scad. 17 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 7, "sede": "Padova (PD)", "km": 110, "scadenza": "2026-09-17", "giorni": 19, "gu": "n. 63 del 18-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-18&atto.codiceRedazionale=26E04512", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04512", "origine_sigla": "BO", "punteggio": 89.0, "affinita": 5}, {"codice": "26E04493", "ente": "Azienda Zero Di Padova", "titolo": "CONCORSO (scad. 10 settembre 2026)", "tipo": "Concorso", "inquadramento": "Dirigenza", "area": "Tecnica", "posti": 1, "sede": "Padova (PD)", "km": 110, "scadenza": "2026-09-10", "giorni": 12, "gu": "n. 61 del 11-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-11&atto.codiceRedazionale=26E04493", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04493", "origine_sigla": "BO", "punteggio": 87.8, "affinita": 5}, {"codice": "26E04494", "ente": "Azienda Zero Di Padova", "titolo": "CONCORSO (scad. 10 settembre 2026)", "tipo": "Concorso", "inquadramento": "Dirigenza", "area": "Tecnica", "posti": 1, "sede": "Padova (PD)", "km": 110, "scadenza": "2026-09-10", "giorni": 12, "gu": "n. 61 del 11-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-11&atto.codiceRedazionale=26E04494", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04494", "origine_sigla": "BO", "punteggio": 87.8, "affinita": 5}, {"codice": "26E04496", "ente": "Azienda Zero Di Padova", "titolo": "CONCORSO (scad. 10 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": null, "sede": "Padova (PD)", "km": 110, "scadenza": "2026-09-10", "giorni": 12, "gu": "n. 61 del 11-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-11&atto.codiceRedazionale=26E04496", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04496", "origine_sigla": "BO", "punteggio": 87.8, "affinita": 5}, {"codice": "26E04515", "ente": "Azienda Socio-Sanitaria Territoriale Degli Spedali Civili Di Brescia", "titolo": "CONCORSO (scad. 17 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Brescia (BS)", "km": 146, "scadenza": "2026-09-17", "giorni": 19, "gu": "n. 63 del 18-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-18&atto.codiceRedazionale=26E04515", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04515", "origine_sigla": "BO", "punteggio": 86.0, "affinita": 5}, {"codice": "26E04541", "ente": "Azienda Socio Sanitaria Territoriale Di Crema", "titolo": "CONCORSO (scad. 20 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Crema (CR)", "km": 162, "scadenza": "2026-09-20", "giorni": 22, "gu": "n. 64 del 21-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-21&atto.codiceRedazionale=26E04541", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04541", "origine_sigla": "BO", "punteggio": 85.2, "affinita": 5}, {"codice": "26E04503", "ente": "Consiglio Regionale Dell'Ordine Dei Giornalisti Del Friuli-Venezia Giulia Di Trieste", "titolo": "CONCORSO (scad. 2 settembre 2026)", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Amministrativa", "posti": 1, "sede": "Venezia (VE)", "km": 131, "scadenza": "2026-09-02", "giorni": 4, "gu": "n. 63 del 18-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-18&atto.codiceRedazionale=26E04503", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04503", "origine_sigla": "BO", "punteggio": 84.8, "affinita": 5}, {"codice": "26E04686", "ente": "Fondazione Irccs Policlinico «San Matteo» Di Pavia", "titolo": "CONCORSO (scad. 27 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Pavia (PV)", "km": 188, "scadenza": "2026-09-27", "giorni": 29, "gu": "n. 66 del 28-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-28&atto.codiceRedazionale=26E04686", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04686", "origine_sigla": "BO", "punteggio": 84.2, "affinita": 5}, {"codice": "26E04836", "ente": "Irccs Azienda Ospedaliera Metropolitana Di Genova", "titolo": "CONCORSO (scad. 24 settembre 2026)", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Tecnica", "posti": 1, "sede": "Genova (GE)", "km": 191, "scadenza": "2026-09-24", "giorni": 26, "gu": "n. 65 del 25-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-25&atto.codiceRedazionale=26E04836", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04836", "origine_sigla": "BO", "punteggio": 83.4, "affinita": 5}, {"codice": "26E04416", "ente": "Azienda Socio-Sanitaria Territoriale Santi Paolo E Carlo Di Milano", "titolo": "CONCORSO (scad. 27 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Milano (MI)", "km": 201, "scadenza": "2026-09-27", "giorni": 29, "gu": "n. 66 del 28-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-28&atto.codiceRedazionale=26E04416", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04416", "origine_sigla": "BO", "punteggio": 83.1, "affinita": 5}, {"codice": "26E04218", "ente": "Azienda Socio-Sanitaria Territoriale Franciacorta Di Chiari", "titolo": "CONCORSO (scad. 6 settembre 2026)", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Tecnica", "posti": 1, "sede": "Chiari (BS)", "km": 160, "scadenza": "2026-09-06", "giorni": 8, "gu": "n. 60 del 07-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-07&atto.codiceRedazionale=26E04218", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04218", "origine_sigla": "BO", "punteggio": 83.0, "affinita": 5}, {"codice": "26E04677", "ente": "Fondazione Irccs San Gerardo Dei Tintori Di Monza", "titolo": "CONCORSO (scad. 27 settembre 2026)", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Tecnica", "posti": 1, "sede": "Monza (MB)", "km": 203, "scadenza": "2026-09-27", "giorni": 29, "gu": "n. 66 del 28-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-28&atto.codiceRedazionale=26E04677", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04677", "origine_sigla": "BO", "punteggio": 82.9, "affinita": 5}, {"codice": "26E04678", "ente": "Fondazione Irccs San Gerardo Dei Tintori Di Monza", "titolo": "CONCORSO (scad. 27 settembre 2026)", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Tecnica", "posti": 1, "sede": "Monza (MB)", "km": 203, "scadenza": "2026-09-27", "giorni": 29, "gu": "n. 66 del 28-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-28&atto.codiceRedazionale=26E04678", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04678", "origine_sigla": "BO", "punteggio": 82.9, "affinita": 5}, {"codice": "26E04592", "ente": "Azienda Socio-Sanitaria Territoriale Santi Paolo E Carlo Di Milano", "titolo": "CONCORSO (scad. 24 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 15, "sede": "Milano (MI)", "km": 201, "scadenza": "2026-09-24", "giorni": 26, "gu": "n. 65 del 25-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-25&atto.codiceRedazionale=26E04592", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04592", "origine_sigla": "BO", "punteggio": 82.6, "affinita": 5}, {"codice": "26E04366", "ente": "Azienda Socio-Sanitaria Territoriale Di Pavia", "titolo": "CONCORSO (scad. 17 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Pavia (PV)", "km": 188, "scadenza": "2026-09-17", "giorni": 19, "gu": "n. 63 del 18-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-18&atto.codiceRedazionale=26E04366", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04366", "origine_sigla": "BO", "punteggio": 82.5, "affinita": 5}, {"codice": "26E04570", "ente": "Istituto Nazionale Ricovero E Cura Per Anziani Di Ancona", "titolo": "CONCORSO (scad. 20 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 12, "sede": "Ancona (AN)", "km": 199, "scadenza": "2026-09-20", "giorni": 22, "gu": "n. 64 del 21-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-21&atto.codiceRedazionale=26E04570", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04570", "origine_sigla": "BO", "punteggio": 82.1, "affinita": 5}, {"codice": "26E04555", "ente": "Comunita' Di Montagna Della Carnia Di Tolmezzo", "titolo": "CONCORSO (scad. 18 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Montagna (BZ)", "km": 204, "scadenza": "2026-09-18", "giorni": 20, "gu": "n. 63 del 18-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-18&atto.codiceRedazionale=26E04555", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04555", "origine_sigla": "BO", "punteggio": 81.3, "affinita": 5}, {"codice": "26E04251", "ente": "Fondazione Irccs Policlinico «San Matteo» Di Pavia", "titolo": "CONCORSO (scad. 6 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Pavia (PV)", "km": 188, "scadenza": "2026-09-06", "giorni": 8, "gu": "n. 60 del 07-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-07&atto.codiceRedazionale=26E04251", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04251", "origine_sigla": "BO", "punteggio": 80.7, "affinita": 5}, {"codice": "26E04688", "ente": "Azienda Sanitaria Universitaria Giuliano Isontina Di Trieste", "titolo": "CONCORSO (scad. 27 settembre 2026)", "tipo": "Concorso", "inquadramento": "Dirigenza", "area": "Informatica/Dati", "posti": 1, "sede": "Trieste (TS)", "km": 230, "scadenza": "2026-09-27", "giorni": 29, "gu": "n. 66 del 28-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-28&atto.codiceRedazionale=26E04688", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04688", "origine_sigla": "BO", "punteggio": 80.7, "affinita": 5}, {"codice": "26E04381", "ente": "Comunita' Di Montagna Della Carnia Di Tolmezzo", "titolo": "CONCORSO (scad. 10 settembre 2026)", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Economico-finanziaria", "posti": 1, "sede": "Montagna (BZ)", "km": 204, "scadenza": "2026-09-10", "giorni": 12, "gu": "n. 61 del 11-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-11&atto.codiceRedazionale=26E04381", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04381", "origine_sigla": "BO", "punteggio": 80.0, "affinita": 4}, {"codice": "26E04073", "ente": "Azienda Ospedaliera Metropolitana Di Genova", "titolo": "CONCORSO (scad. 3 settembre 2026)", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Tecnica", "posti": 1, "sede": "Genova (GE)", "km": 191, "scadenza": "2026-09-03", "giorni": 5, "gu": "n. 59 del 04-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-04&atto.codiceRedazionale=26E04073", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04073", "origine_sigla": "BO", "punteggio": 79.9, "affinita": 4}, {"codice": "26E04304", "ente": "Regione Lombardia", "titolo": "CONCORSO (scad. 6 settembre 2026)", "tipo": "Selezione", "inquadramento": "Dirigenza", "area": "Informatica/Dati", "posti": null, "sede": "Milano (MI) - sede da verificare", "km": 201, "scadenza": "2026-09-06", "giorni": 8, "gu": "n. 60 del 07-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-07&atto.codiceRedazionale=26E04304", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04304", "origine_sigla": "BO", "punteggio": 79.6, "affinita": 4}, {"codice": "26E04276", "ente": "Comunita' Di Montagna Della Carnia Di Tolmezzo", "titolo": "CONCORSO (scad. 7 settembre 2026)", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Amministrativa", "posti": 1, "sede": "Montagna (BZ)", "km": 204, "scadenza": "2026-09-07", "giorni": 9, "gu": "n. 60 del 07-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-07&atto.codiceRedazionale=26E04276", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04276", "origine_sigla": "BO", "punteggio": 79.5, "affinita": 4}, {"codice": "26E04769", "ente": "Comune Di Monfalcone", "titolo": "CONCORSO (scad. 17 settembre 2026)", "tipo": "Selezione", "inquadramento": "Dirigenza", "area": "Informatica/Dati", "posti": null, "sede": "Monfalcone (GO)", "km": 225, "scadenza": "2026-09-17", "giorni": 19, "gu": "n. 66 del 28-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-28&atto.codiceRedazionale=26E04769", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04769", "origine_sigla": "BO", "punteggio": 79.4, "affinita": 4}, {"codice": "26E04296", "ente": "Consorzio Dell'Adda Di Milano", "titolo": "CONCORSO (scad. 3 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Milano (MI)", "km": 201, "scadenza": "2026-09-03", "giorni": 5, "gu": "n. 59 del 04-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-04&atto.codiceRedazionale=26E04296", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04296", "origine_sigla": "BO", "punteggio": 79.1, "affinita": 4}, {"codice": "26E04395", "ente": "Fondazione Irccs Ca' Granda Ospedale Maggiore Policlinico Di Milano", "titolo": "DIARIO", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 2, "sede": "Milano (MI)", "km": 201, "scadenza": null, "giorni": null, "gu": "n. 64 del 21-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-21&atto.codiceRedazionale=26E04395", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04395", "origine_sigla": "BO", "punteggio": 78.2, "affinita": 4}, {"codice": "26E04344", "ente": "Agenzia Di Tutela Della Salute Della Citta' Metropolitana Di Milano", "titolo": "DIARIO", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Amministrativa", "posti": 1, "sede": "Milano (MI)", "km": 201, "scadenza": null, "giorni": null, "gu": "n. 61 del 11-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-11&atto.codiceRedazionale=26E04344", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04344", "origine_sigla": "BO", "punteggio": 78.2, "affinita": 4}, {"codice": "26E04386", "ente": "Fondazione Irccs Ca' Granda Ospedale Maggiore Policlinico Di Milano", "titolo": "DIARIO", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 6, "sede": "Milano (MI)", "km": 201, "scadenza": null, "giorni": null, "gu": "n. 61 del 11-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-11&atto.codiceRedazionale=26E04386", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04386", "origine_sigla": "BO", "punteggio": 78.2, "affinita": 4}, {"codice": "26E04508", "ente": "Comune Di Gorizia", "titolo": "CONCORSO (scad. 17 settembre 2026)", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Tecnica", "posti": 1, "sede": "Gorizia (GO)", "km": 240, "scadenza": "2026-09-17", "giorni": 19, "gu": "n. 63 del 18-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-18&atto.codiceRedazionale=26E04508", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04508", "origine_sigla": "BO", "punteggio": 78.2, "affinita": 4}, {"codice": "26E04602", "ente": "Azienda Sanitaria Locale Del Verbano Cusio Ossola - Omegna", "titolo": "CONCORSO (scad. 24 settembre 2026)", "tipo": "Concorso", "inquadramento": "Dirigenza", "area": "Tecnica", "posti": 1, "sede": "Omegna (VB)", "km": 276, "scadenza": "2026-09-24", "giorni": 26, "gu": "n. 65 del 25-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-25&atto.codiceRedazionale=26E04602", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04602", "origine_sigla": "BO", "punteggio": 76.3, "affinita": 4}, {"codice": "26E04204", "ente": "Azienda Unita' Sanitaria Locale Umbria 2 Di Terni", "titolo": "CONCORSO (scad. 3 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Terni (TR)", "km": 239, "scadenza": "2026-09-03", "giorni": 5, "gu": "n. 59 del 04-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-04&atto.codiceRedazionale=26E04204", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04204", "origine_sigla": "BO", "punteggio": 75.9, "affinita": 4}, {"codice": "26E04205", "ente": "Azienda Unita' Sanitaria Locale Umbria 2 Di Terni", "titolo": "CONCORSO (scad. 3 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Terni (TR)", "km": 239, "scadenza": "2026-09-03", "giorni": 5, "gu": "n. 59 del 04-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-04&atto.codiceRedazionale=26E04205", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04205", "origine_sigla": "BO", "punteggio": 75.9, "affinita": 4}, {"codice": "26E04256", "ente": "Azienda Socio Sanitaria Territoriale Dei Sette Laghi - Varese", "titolo": "CONCORSO (scad. 6 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Varese (VA)", "km": 246, "scadenza": "2026-09-06", "giorni": 8, "gu": "n. 60 del 07-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-07&atto.codiceRedazionale=26E04256", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04256", "origine_sigla": "BO", "punteggio": 75.8, "affinita": 4}, {"codice": "26E04544", "ente": "Azienda Sanitaria Locale Del Verbano Cusio Ossola - Omegna", "titolo": "CONCORSO (scad. 20 settembre 2026)", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Tecnica", "posti": 1, "sede": "Omegna (VB)", "km": 276, "scadenza": "2026-09-20", "giorni": 22, "gu": "n. 64 del 21-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-21&atto.codiceRedazionale=26E04544", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04544", "origine_sigla": "BO", "punteggio": 75.7, "affinita": 4}, {"codice": "26E04553", "ente": "Azienda Unita' Sanitaria Locale Di Viterbo", "titolo": "DIARIO", "tipo": "Concorso", "inquadramento": "Funzionari/EQ", "area": "Economico-finanziaria", "posti": 1, "sede": "Viterbo (VT)", "km": 239, "scadenza": null, "giorni": null, "gu": "n. 64 del 21-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-21&atto.codiceRedazionale=26E04553", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04553", "origine_sigla": "BO", "punteggio": 75.1, "affinita": 4}, {"codice": "26E04346", "ente": "Azienda Unita' Sanitaria Locale Di Viterbo", "titolo": "DIARIO", "tipo": "Concorso", "inquadramento": "Istruttori", "area": "Informatica/Dati", "posti": 5, "sede": "Viterbo (VT)", "km": 239, "scadenza": null, "giorni": null, "gu": "n. 61 del 11-08-2026", "url_gu": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-08-11&atto.codiceRedazionale=26E04346", "url_candidatura": "https://portale.inpa.gov.it/ui/public/concorsi?keyword=26E04346", "origine_sigla": "BO", "punteggio": 75.1, "affinita": 4}];
+const RAGGIO = 300;
+const stato = {km:RAGGIO, inq:[], area:[], tipo:[], scad:null, q:""};
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+function popolaChips(id, chiave){
+  const valori = [...new Set(bandi.map(b => b[chiave]).filter(Boolean))].sort();
+  document.getElementById(id).innerHTML = valori
+    .map(v => `<button class="chip" aria-pressed="false" data-v="${esc(v)}">${esc(v)}</button>`).join("");
+}
+
+function colore(gg){
+  if(gg === null || gg === undefined) return "var(--line)";
+  if(gg <= 7) return "var(--rosso)";
+  if(gg <= 21) return "var(--ambra)";
+  return "var(--verde)";
+}
+
+function quadrante(km){
+  if(km === null || km === undefined) return "";
+  const r = 15, c = 2 * Math.PI * r, q = Math.min(km / RAGGIO, 1);
+  return `<svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true">
+    <circle cx="19" cy="19" r="${r}" fill="none" stroke="#D3DAE3" stroke-width="3"></circle>
+    <circle cx="19" cy="19" r="${r}" fill="none" stroke="#14539A" stroke-width="3"
+      stroke-dasharray="${(c*q).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 19 19)"></circle>
+  </svg>`;
+}
+
+function segmenti(n){
+  let s = "";
+  for(let i=1;i<=5;i++) s += `<i class="${i<=n?'on':''}"></i>`;
+  return s;
+}
+
+function passa(b){
+  if(b.km !== null && b.km > stato.km) return false;
+  if(stato.inq.length && !stato.inq.includes(b.inquadramento)) return false;
+  if(stato.area.length && !stato.area.includes(b.area)) return false;
+  if(stato.tipo.length && !stato.tipo.includes(b.tipo)) return false;
+  if(stato.scad && (b.giorni === null || b.giorni > Number(stato.scad))) return false;
+  if(stato.q){
+    const t = (b.ente + " " + b.titolo + " " + (b.sede||"")).toLowerCase();
+    if(!t.includes(stato.q)) return false;
+  }
+  return true;
+}
+
+function disegna(){
+  const vis = bandi.filter(passa).sort((a,b)=> b.punteggio - a.punteggio || (a.km??9e9) - (b.km??9e9));
+  document.getElementById("cVis").textContent = vis.length;
+  const el = document.getElementById("list");
+
+  if(!vis.length){
+    el.innerHTML = `<div class="vuoto"><b>Nessun bando con questi filtri</b>Allarga il raggio o togli un criterio per vedere altri risultati.</div>`;
+    return;
+  }
+
+  el.innerHTML = vis.map(b => `
+    <article class="bando" style="--spine:${colore(b.giorni)}">
+      <div class="riga1">
+        <div>
+          <p class="ente">${esc(b.ente)}</p>
+          <h3 class="titolo">${esc(b.titolo)}</h3>
+        </div>
+        ${b.km !== null ? `<div class="dist">${quadrante(b.km)}<span class="km">${b.km} km</span><span class="lab">da ${esc(b.origine_sigla)}</span></div>` : ""}
+      </div>
+      <div class="meta">
+        ${b.inquadramento ? `<span class="tag b">${esc(b.inquadramento)}</span>` : ""}
+        ${b.area ? `<span class="tag b">${esc(b.area)}</span>` : ""}
+        <span class="tag">${esc(b.tipo)}</span>
+        ${b.posti ? `<span class="tag">${b.posti} ${b.posti===1?"posto":"posti"}</span>` : ""}
+        ${b.sede ? `<span class="tag">${esc(b.sede)}</span>` : ""}
+      </div>
+      <div class="piede">
+        <div>
+          <p class="fonte">GU 4ª SS ${esc(b.gu)} · ${esc(b.codice)}</p>
+          <div class="links">
+            <a href="${esc(b.url_gu)}" target="_blank" rel="noopener">Testo in GU</a>
+            <a href="${esc(b.url_candidatura)}" target="_blank" rel="noopener">Vai alla candidatura</a>
+          </div>
+          <div class="fit" style="margin-top:7px"><div class="segs">${segmenti(b.affinita)}</div><span>affinità</span></div>
+        </div>
+        <p class="scad">${b.giorni !== null ? `scade tra<b>${b.giorni} giorni</b>` : `scadenza<b>non rilevata</b>`}</p>
+      </div>
+    </article>`).join("");
+}
+
+function gruppo(id, chiave){
+  document.getElementById(id).addEventListener("click", e => {
+    const btn = e.target.closest(".chip");
+    if(!btn) return;
+    const v = btn.dataset.v;
+    if(chiave === "scad"){
+      const attivo = stato.scad === v;
+      document.querySelectorAll("#" + id + " .chip").forEach(c => c.setAttribute("aria-pressed","false"));
+      stato.scad = attivo ? null : v;
+      btn.setAttribute("aria-pressed", attivo ? "false" : "true");
+    } else {
+      const i = stato[chiave].indexOf(v);
+      if(i > -1){ stato[chiave].splice(i,1); btn.setAttribute("aria-pressed","false"); }
+      else { stato[chiave].push(v); btn.setAttribute("aria-pressed","true"); }
+    }
+    disegna();
+  });
+}
+
+popolaChips("fInq","inquadramento");
+popolaChips("fArea","area");
+popolaChips("fTipo","tipo");
+gruppo("fInq","inq"); gruppo("fArea","area"); gruppo("fTipo","tipo"); gruppo("fScad","scad");
+
+document.getElementById("km").addEventListener("input", e => {
+  stato.km = Number(e.target.value);
+  document.getElementById("kmVal").textContent = stato.km;
+  disegna();
+});
+document.getElementById("q").addEventListener("input", e => {
+  stato.q = e.target.value.trim().toLowerCase();
+  disegna();
+});
+document.getElementById("reset").addEventListener("click", () => {
+  stato.km = RAGGIO; stato.inq = []; stato.area = []; stato.tipo = []; stato.scad = null; stato.q = "";
+  document.getElementById("km").value = RAGGIO;
+  document.getElementById("kmVal").textContent = RAGGIO;
+  document.getElementById("q").value = "";
+  document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed","false"));
+  disegna();
+});
+
+disegna();
+</script>
+</body>
+</html>
