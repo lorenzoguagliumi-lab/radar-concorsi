@@ -10,7 +10,7 @@
   "c": "Bologna (BO)",
   "km": 0,
   "s": "2026-12-20",
-  "gg": 26,
+  "gg": 25,
   "gu": "n. 90 del 20-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-20&atto.codiceRedazionale=26E06344"
  },
@@ -25,7 +25,7 @@
   "c": "Bologna (BO)",
   "km": 0,
   "s": "2026-12-20",
-  "gg": 26,
+  "gg": 25,
   "gu": "n. 90 del 20-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-20&atto.codiceRedazionale=26E06311"
  },
@@ -40,7 +40,7 @@
   "c": "Bologna (BO)",
   "km": 0,
   "s": "2026-12-20",
-  "gg": 26,
+  "gg": 25,
   "gu": "n. 90 del 20-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-20&atto.codiceRedazionale=26E06312"
  },
@@ -55,7 +55,7 @@
   "c": "Bologna (BO)",
   "km": 0,
   "s": "2026-12-20",
-  "gg": 26,
+  "gg": 25,
   "gu": "n. 90 del 20-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-20&atto.codiceRedazionale=26E06314"
  },
@@ -70,7 +70,7 @@
   "c": "Bologna (BO)",
   "km": 0,
   "s": "2026-11-29",
-  "gg": 5,
+  "gg": 4,
   "gu": "n. 84 del 30-10-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-10-30&atto.codiceRedazionale=26E05890"
  },
@@ -85,7 +85,7 @@
   "c": "Bologna (BO)",
   "km": 0,
   "s": "2026-11-29",
-  "gg": 5,
+  "gg": 4,
   "gu": "n. 84 del 30-10-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-10-30&atto.codiceRedazionale=26E05891"
  },
@@ -100,7 +100,7 @@
   "c": "Modena (MO)",
   "km": 37,
   "s": "2026-12-13",
-  "gg": 19,
+  "gg": 18,
   "gu": "n. 88 del 13-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-13&atto.codiceRedazionale=26E06180"
  },
@@ -115,7 +115,7 @@
   "c": "Ferrara (FE)",
   "km": 44,
   "s": "2026-12-03",
-  "gg": 9,
+  "gg": 8,
   "gu": "n. 85 del 03-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-03&atto.codiceRedazionale=26E05946"
  },
@@ -130,7 +130,7 @@
   "c": "Ferrara (FE)",
   "km": 44,
   "s": "2026-12-03",
-  "gg": 9,
+  "gg": 8,
   "gu": "n. 85 del 03-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-03&atto.codiceRedazionale=26E05961"
  },
@@ -145,9 +145,39 @@
   "c": "Ferrara (FE)",
   "km": 44,
   "s": "2026-12-03",
-  "gg": 9,
+  "gg": 8,
   "gu": "n. 85 del 03-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-03&atto.codiceRedazionale=26E05964"
+ },
+ {
+  "cod": "26E06394",
+  "e": "Irccs Istituto Romagnolo per lo Studio dei Tumori Dino Amadori di Meldola",
+  "t": "CONCORSO (scad. 24 dicembre 2026)",
+  "tipo": "Concorso",
+  "i": "Funzionari",
+  "a": "Tecnica/Logistica",
+  "n": null,
+  "c": "Meldola (FC)",
+  "km": 70,
+  "s": "2026-12-24",
+  "gg": 29,
+  "gu": "n. 91 del 24-11-2026",
+  "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-24&atto.codiceRedazionale=26E06394"
+ },
+ {
+  "cod": "26E06395",
+  "e": "Irccs Istituto Romagnolo per lo Studio dei Tumori Dino Amadori di Meldola",
+  "t": "CONCORSO (scad. 24 dicembre 2026)",
+  "tipo": "Concorso",
+  "i": "Funzionari",
+  "a": "Tecnica/Logistica",
+  "n": null,
+  "c": "Meldola (FC)",
+  "km": 70,
+  "s": "2026-12-24",
+  "gg": 29,
+  "gu": "n. 91 del 24-11-2026",
+  "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-24&atto.codiceRedazionale=26E06395"
  },
  {
   "cod": "26E06429",
@@ -160,7 +190,7 @@
   "c": "Padova (PD)",
   "km": 110,
   "s": "2026-12-20",
-  "gg": 26,
+  "gg": 25,
   "gu": "n. 90 del 20-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-20&atto.codiceRedazionale=26E06429"
  },
@@ -175,9 +205,54 @@
   "c": "Padova (PD)",
   "km": 110,
   "s": "2026-12-20",
-  "gg": 26,
+  "gg": 25,
   "gu": "n. 90 del 20-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-20&atto.codiceRedazionale=26E06346"
+ },
+ {
+  "cod": "26E06390",
+  "e": "Azienda Socio-Sanitaria Territoriale del Garda di Desenzano del Garda",
+  "t": "CONCORSO (scad. 24 dicembre 2026)",
+  "tipo": "Concorso",
+  "i": "Funzionari",
+  "a": "Amministrativa",
+  "n": null,
+  "c": "Desenzano del Garda (BS)",
+  "km": 125,
+  "s": "2026-12-24",
+  "gg": 29,
+  "gu": "n. 91 del 24-11-2026",
+  "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-24&atto.codiceRedazionale=26E06390"
+ },
+ {
+  "cod": "26E06392",
+  "e": "Azienda Unita' Sanitaria Locale di Piacenza",
+  "t": "CONCORSO (scad. 24 dicembre 2026)",
+  "tipo": "Concorso",
+  "i": "Funzionari",
+  "a": "Tecnica/Logistica",
+  "n": null,
+  "c": "Piacenza (PC)",
+  "km": 144,
+  "s": "2026-12-24",
+  "gg": 29,
+  "gu": "n. 91 del 24-11-2026",
+  "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-24&atto.codiceRedazionale=26E06392"
+ },
+ {
+  "cod": "26E06391",
+  "e": "Azienda Socio-Sanitaria Territoriale degli Spedali Civili di Brescia",
+  "t": "CONCORSO (scad. 24 dicembre 2026)",
+  "tipo": "Concorso",
+  "i": "Dirigenza",
+  "a": "Tecnica/Logistica",
+  "n": null,
+  "c": "Brescia (BS)",
+  "km": 146,
+  "s": "2026-12-24",
+  "gg": 29,
+  "gu": "n. 91 del 24-11-2026",
+  "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-24&atto.codiceRedazionale=26E06391"
  },
  {
   "cod": "26E06347",
@@ -190,7 +265,7 @@
   "c": "Brescia (BS)",
   "km": 146,
   "s": "2026-12-20",
-  "gg": 26,
+  "gg": 25,
   "gu": "n. 90 del 20-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-20&atto.codiceRedazionale=26E06347"
  },
@@ -205,7 +280,7 @@
   "c": "Chiari (BS)",
   "km": 160,
   "s": "2026-11-29",
-  "gg": 5,
+  "gg": 4,
   "gu": "n. 84 del 30-10-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-10-30&atto.codiceRedazionale=26E05901"
  },
@@ -220,7 +295,7 @@
   "c": "Perugia (PG)",
   "km": 176,
   "s": "2026-12-17",
-  "gg": 23,
+  "gg": 22,
   "gu": "n. 89 del 17-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-17&atto.codiceRedazionale=26E06255"
  },
@@ -235,7 +310,7 @@
   "c": "Perugia (PG)",
   "km": 176,
   "s": "2026-12-10",
-  "gg": 16,
+  "gg": 15,
   "gu": "n. 87 del 10-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-10&atto.codiceRedazionale=26E06111"
  },
@@ -250,7 +325,7 @@
   "c": "Vizzolo Predabissi (MI)",
   "km": 184,
   "s": "2026-12-03",
-  "gg": 9,
+  "gg": 8,
   "gu": "n. 85 del 03-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-03&atto.codiceRedazionale=26E05972"
  },
@@ -265,7 +340,7 @@
   "c": "Vizzolo Predabissi (MI)",
   "km": 184,
   "s": "2026-12-03",
-  "gg": 9,
+  "gg": 8,
   "gu": "n. 85 del 03-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-03&atto.codiceRedazionale=26E05973"
  },
@@ -280,7 +355,7 @@
   "c": "Bergamo (BG)",
   "km": 187,
   "s": "2026-12-06",
-  "gg": 12,
+  "gg": 11,
   "gu": "n. 86 del 06-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-06&atto.codiceRedazionale=26E06082"
  },
@@ -295,7 +370,7 @@
   "c": "Pavia (PV)",
   "km": 188,
   "s": "2026-12-20",
-  "gg": 26,
+  "gg": 25,
   "gu": "n. 90 del 20-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-20&atto.codiceRedazionale=26E06325"
  },
@@ -310,7 +385,7 @@
   "c": "Pavia (PV)",
   "km": 188,
   "s": "2026-12-17",
-  "gg": 23,
+  "gg": 22,
   "gu": "n. 89 del 17-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-17&atto.codiceRedazionale=26E06264"
  },
@@ -325,7 +400,7 @@
   "c": "Pavia (PV)",
   "km": 188,
   "s": "2026-12-10",
-  "gg": 16,
+  "gg": 15,
   "gu": "n. 87 del 10-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-10&atto.codiceRedazionale=26E06031"
  },
@@ -340,7 +415,7 @@
   "c": "Pavia (PV)",
   "km": 188,
   "s": "2026-12-10",
-  "gg": 16,
+  "gg": 15,
   "gu": "n. 86 del 06-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-06&atto.codiceRedazionale=26E06012"
  },
@@ -355,7 +430,7 @@
   "c": "Ancona (AN)",
   "km": 199,
   "s": "2026-12-13",
-  "gg": 19,
+  "gg": 18,
   "gu": "n. 88 del 13-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-13&atto.codiceRedazionale=26E06120"
  },
@@ -370,7 +445,7 @@
   "c": "Vimercate (MB)",
   "km": 199,
   "s": "2026-12-13",
-  "gg": 19,
+  "gg": 18,
   "gu": "n. 88 del 13-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-13&atto.codiceRedazionale=26E06138"
  },
@@ -385,7 +460,7 @@
   "c": "Milano (MI)",
   "km": 201,
   "s": "2026-12-13",
-  "gg": 19,
+  "gg": 18,
   "gu": "n. 88 del 13-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-13&atto.codiceRedazionale=26E06188"
  },
@@ -400,7 +475,7 @@
   "c": "Milano (MI)",
   "km": 201,
   "s": "2026-12-13",
-  "gg": 19,
+  "gg": 18,
   "gu": "n. 88 del 13-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-13&atto.codiceRedazionale=26E06189"
  },
@@ -415,7 +490,7 @@
   "c": "Monza (MB)",
   "km": 203,
   "s": "2026-12-17",
-  "gg": 23,
+  "gg": 22,
   "gu": "n. 89 del 17-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-17&atto.codiceRedazionale=26E06277"
  },
@@ -430,9 +505,24 @@
   "c": "Montagna (BZ)",
   "km": 204,
   "s": "2026-12-17",
-  "gg": 23,
+  "gg": 22,
   "gu": "n. 89 del 17-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-17&atto.codiceRedazionale=26E06252"
+ },
+ {
+  "cod": "26E06375",
+  "e": "Azienda Sanitaria Locale del Verbano Cusio Ossola - Omegna",
+  "t": "CONCORSO (scad. 24 dicembre 2026)",
+  "tipo": "Concorso",
+  "i": "Dirigenza",
+  "a": "Economico-finanziaria",
+  "n": null,
+  "c": "Cusio (BG)",
+  "km": 215,
+  "s": "2026-12-24",
+  "gg": 29,
+  "gu": "n. 91 del 24-11-2026",
+  "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-24&atto.codiceRedazionale=26E06375"
  },
  {
   "cod": "26E06315",
@@ -445,7 +535,7 @@
   "c": "Garbagnate Milanese (MI)",
   "km": 215,
   "s": "2026-12-20",
-  "gg": 26,
+  "gg": 25,
   "gu": "n. 90 del 20-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-20&atto.codiceRedazionale=26E06315"
  },
@@ -460,9 +550,24 @@
   "c": "Bruno (AT)",
   "km": 232,
   "s": "2026-12-03",
-  "gg": 9,
+  "gg": 8,
   "gu": "n. 85 del 03-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-03&atto.codiceRedazionale=26E05931"
+ },
+ {
+  "cod": "26E06547",
+  "e": "Azienda Sanitaria Locale «no» - Novara",
+  "t": "CONCORSO (scad. 24 dicembre 2026)",
+  "tipo": "Concorso",
+  "i": "Funzionari",
+  "a": "Tecnica/Logistica",
+  "n": null,
+  "c": "Novara (NO)",
+  "km": 239,
+  "s": "2026-12-24",
+  "gg": 29,
+  "gu": "n. 91 del 24-11-2026",
+  "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-24&atto.codiceRedazionale=26E06547"
  },
  {
   "cod": "26E06181",
@@ -475,7 +580,7 @@
   "c": "Varese (VA)",
   "km": 246,
   "s": "2026-12-13",
-  "gg": 19,
+  "gg": 18,
   "gu": "n. 88 del 13-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-13&atto.codiceRedazionale=26E06181"
  },
@@ -490,7 +595,7 @@
   "c": "Roma (RM)",
   "km": 304,
   "s": "2026-12-06",
-  "gg": 12,
+  "gg": 11,
   "gu": "n. 86 del 06-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-06&atto.codiceRedazionale=26E06050"
  },
@@ -505,7 +610,7 @@
   "c": "Collegno (TO)",
   "km": 305,
   "s": "2026-11-29",
-  "gg": 5,
+  "gg": 4,
   "gu": "n. 84 del 30-10-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-10-30&atto.codiceRedazionale=26E05898"
  },
@@ -520,7 +625,7 @@
   "c": "Pescara (PE)",
   "km": 323,
   "s": "2026-12-03",
-  "gg": 9,
+  "gg": 8,
   "gu": "n. 85 del 03-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-03&atto.codiceRedazionale=26E05968"
  },
@@ -535,9 +640,39 @@
   "c": "Molise (CB)",
   "km": 409,
   "s": "2026-11-26",
-  "gg": 2,
+  "gg": 1,
   "gu": "n. 83 del 27-10-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-10-27&atto.codiceRedazionale=26E05822"
+ },
+ {
+  "cod": "26E06461",
+  "e": "Azienda Ospedaliera «a. Cardarelli» di Napoli",
+  "t": "CONCORSO (scad. 24 dicembre 2026)",
+  "tipo": "Concorso",
+  "i": "Funzionari",
+  "a": "Tecnica/Logistica",
+  "n": null,
+  "c": "Napoli (NA)",
+  "km": 471,
+  "s": "2026-12-24",
+  "gg": 29,
+  "gu": "n. 91 del 24-11-2026",
+  "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-24&atto.codiceRedazionale=26E06461"
+ },
+ {
+  "cod": "26E06462",
+  "e": "Azienda Ospedaliera «a. Cardarelli» di Napoli",
+  "t": "CONCORSO (scad. 24 dicembre 2026)",
+  "tipo": "Concorso",
+  "i": "Funzionari",
+  "a": "Tecnica/Logistica",
+  "n": null,
+  "c": "Napoli (NA)",
+  "km": 471,
+  "s": "2026-12-24",
+  "gg": 29,
+  "gu": "n. 91 del 24-11-2026",
+  "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-24&atto.codiceRedazionale=26E06462"
  },
  {
   "cod": "26E05949",
@@ -550,7 +685,7 @@
   "c": null,
   "km": null,
   "s": "2026-12-03",
-  "gg": 9,
+  "gg": 8,
   "gu": "n. 85 del 03-11-2026",
   "u": "https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-11-03&atto.codiceRedazionale=26E05949"
  }
